@@ -4,7 +4,7 @@ import { FeaturedTours } from "~/components/home/featured-tours"
 import { Gallery } from "~/components/home/gallery"
 import { HeroCarousel } from "~/components/home/hero-carousel"
 import { SearchDestinations } from "~/components/home/search-destinations"
-import { Testimonials } from "~/components/home/testimonials"
+import { Testimonials } from "~/components/home/testimonials-copy"
 
 export default function Home() {
   return (

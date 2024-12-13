@@ -5,11 +5,12 @@ import { Star } from "lucide-react"
 import { BlurFade } from "~/components/magicui/blur-fade"
 import { ShineBorder } from "~/components/magicui/shine-border"
 
+import { SparklesText } from "../magicui/sparkles-text"
+
 const testimonials = [
   {
     id: 1,
     name: "Park Taeyang",
-    role: "",
     text: "แพลตฟอร์มนี้มีประโยชน์มาก เพราะมีสถานที่สวยงามมากมายให้เลือก และยังช่วยฉันค้นหาจุดหมายปลายทางที่น่าสนใจได้ดีมาก บริการก็ดีมาก ฉันจึงชอบใช้ Adventex เมื่อฉันต้องการเดินทางกับครอบครัวของฉัน.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
     rating: 5,
@@ -17,7 +18,6 @@ const testimonials = [
   {
     id: 2,
     name: "Alex Thompson",
-    role: "",
     text: "ฉันใช้ Adventex สำหรับการผจญภัยในการเดินทางทั้งหมดของฉัน และรู้สึกประทับใจในความใส่ใจในรายละเอียดและบริการที่เป็นส่วนตัวมาก ไกด์ท้องถิ่นที่พวกเขาร่วมงานด้วยมีความรู้และหลงใหลในการแบ่งปันวัฒนธรรมของพวกเขา.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
     rating: 5,
@@ -25,7 +25,6 @@ const testimonials = [
   {
     id: 3,
     name: "Sofia Martinez",
-    role: "",
     text: "สิ่งที่ทำให้ Adventex แตกต่างคือความมุ่งมั่นในการสร้างประสบการณ์ที่แท้จริง ทุกทริปที่ฉันจองกับพวกเขาได้รับการคัดสรรมาอย่างดี ทำให้ฉันสามารถดื่มด่ำไปกับประเพณีท้องถิ่นได้อย่างเต็มที่ พร้อมทั้งได้พักในที่พักที่สะดวกสบาย.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
     rating: 5,
@@ -34,16 +33,13 @@ const testimonials = [
 
 export const Testimonials = () => {
   return (
-    <section>
-      <div className="mb-12">
-        <p className="mb-4 font-semibold uppercase tracking-wide text-primary">
-          สิ่งที่พวกเขาพูด
-        </p>
-        <h2 className="mb-6 text-4xl font-bold md:text-5xl">
-          ลูกค้าของเรา
-          <br />
-          พูดถึงเรายังไงบ้าง
-        </h2>
+    <section className="grid gap-8">
+      <div className="grid gap-2">
+        <span className="font-semibold text-primary">สิ่งที่พวกเขาพูด</span>
+        <SparklesText
+          text="ลูกค้าของเรา พูดถึงเรายังไงบ้าง"
+          className="text-6xl font-normal leading-none"
+        />
       </div>
 
       <div className="grid gap-8 md:grid-cols-3">
@@ -115,7 +111,6 @@ export const Testimonials = () => {
                     <h4 className="text-lg font-semibold">
                       {testimonial.name}
                     </h4>
-                    <p className="text-gray-500">{testimonial.role}</p>
                     <div className="mt-1 flex gap-0.5">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star
