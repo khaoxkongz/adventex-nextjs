@@ -15,6 +15,7 @@ const cities = [
     name: "HARBIN",
     className: "col-span-6 col-start-1 row-span-3 row-start-1 lg:row-span-8",
     image: "/images/city/harbin.jpg",
+    alt: "Ice and Snow World in Harbin featuring magnificent illuminated ice sculptures and buildings",
     href: "/destinations/harbin",
   },
   {
@@ -23,6 +24,7 @@ const cities = [
     className:
       "col-span-3 col-start-1 row-span-3 row-start-4 lg:row-span-4 lg:row-start-9",
     image: "/images/city/shanghai.jpg",
+    alt: "Shanghai skyline at night featuring the iconic Oriental Pearl Tower and modern skyscrapers",
     href: "/destinations/shanghai",
   },
   {
@@ -31,6 +33,7 @@ const cities = [
     className:
       "col-span-3 col-start-4 row-span-3 row-start-4 lg:row-span-4 lg:row-start-9",
     image: "/images/city/chengdu.jpg",
+    alt: "Traditional Chinese architecture in Chengdu with red lanterns and ancient buildings",
     href: "/destinations/chengdu",
   },
   {
@@ -39,6 +42,7 @@ const cities = [
     className:
       "col-span-6 col-start-1 row-span-3 row-start-7 md:col-span-3 md:row-span-6 lg:col-start-7 lg:row-span-12 lg:row-start-1",
     image: "/images/city/beijing.jpg",
+    alt: "The Great Wall of China winding through mountains near Beijing",
     href: "/destinations/beijing",
   },
   {
@@ -47,6 +51,7 @@ const cities = [
     className:
       "col-span-3 col-start-1 row-span-3 row-start-10 md:col-start-4 md:row-start-7 lg:col-span-3 lg:col-start-10 lg:row-span-6 lg:row-start-1",
     image: "/images/city/guangzhou.jpg",
+    alt: "Modern Guangzhou cityscape with Canton Tower illuminated at night",
     href: "/destinations/guangzhou",
   },
   {
@@ -55,6 +60,7 @@ const cities = [
     className:
       "col-span-3 col-start-4 row-span-3 row-start-10 lg:col-span-3 lg:col-start-10 lg:row-span-6 lg:row-start-7",
     image: "/images/city/chongqing.jpg",
+    alt: "Dramatic nighttime view of Chongqing's riverside skyline with traditional stilt houses",
     href: "/destinations/chongqing",
   },
 ]
@@ -79,7 +85,7 @@ export const CityHighlights = () => {
           <BentoCard key={city.id} className={city.className}>
             <BentoCardLink href={city.href}>
               <BentoCardContent>
-                <BentoCardImage src={city.image} alt={city.name} />
+                <BentoCardImage src={city.image} alt={city.alt} />
                 <BentoCardFooter>
                   <BentoCardTitle>{city.name}</BentoCardTitle>
                 </BentoCardFooter>

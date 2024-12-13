@@ -2,6 +2,7 @@ import * as React from "react"
 import Image from "next/image"
 import { MapPin } from "lucide-react"
 
+import { cn } from "~/lib/utils"
 import { BentoCard, BentoGrid } from "~/components/magicui/bento-grid"
 import { SparklesText } from "~/components/magicui/sparkles-text"
 
@@ -20,7 +21,10 @@ const bentos: Bento[] = [
   {
     id: "1",
     name: "HARBIN",
-    className: "col-span-6 col-start-1 row-span-3 row-start-1 lg:row-span-8",
+    className: cn(
+      "col-span-6 col-start-1 row-span-3 row-start-1",
+      "lg:row-span-8"
+    ),
     background: (
       <Image
         src="/images/city/harbin.jpg"
@@ -38,8 +42,10 @@ const bentos: Bento[] = [
   {
     id: "2",
     name: "HARBIN",
-    className:
-      "col-span-3 col-start-1 row-span-3 row-start-4 lg:row-span-4 lg:row-start-9",
+    className: cn(
+      "col-span-3 col-start-1 row-span-3 row-start-4",
+      "lg:row-span-4 lg:row-start-9"
+    ),
     background: (
       <Image
         src="/images/city/shanghai.jpg"
@@ -57,8 +63,10 @@ const bentos: Bento[] = [
   {
     id: "3",
     name: "CHENGDU",
-    className:
-      "col-span-3 col-start-4 row-span-3 row-start-4 lg:row-span-4 lg:row-start-9",
+    className: cn(
+      "col-span-3 col-start-4 row-span-3 row-start-4",
+      "lg:row-span-4 lg:row-start-9"
+    ),
     background: (
       <Image
         src="/images/city/chengdu.jpg"
@@ -76,8 +84,11 @@ const bentos: Bento[] = [
   {
     id: "4",
     name: "BEIJING",
-    className:
-      "col-span-6 col-start-1 row-span-3 row-start-7 md:col-span-3 md:row-span-6 lg:col-start-7 lg:row-span-12 lg:row-start-1",
+    className: cn(
+      "col-span-6 col-start-1 row-span-3 row-start-7",
+      "md:col-span-3 md:row-span-6",
+      "lg:col-start-7 lg:row-span-12 lg:row-start-1"
+    ),
     background: (
       <Image
         src="/images/city/beijing.jpg"
@@ -95,8 +106,11 @@ const bentos: Bento[] = [
   {
     id: "5",
     name: "GUANGZHOU",
-    className:
-      "col-span-3 col-start-1 row-span-3 row-start-10 md:col-start-4 md:row-start-7 lg:col-span-3 lg:col-start-10 lg:row-span-6 lg:row-start-1",
+    className: cn(
+      "col-span-3 col-start-1 row-span-3 row-start-10",
+      "md:col-start-4 md:row-start-7",
+      "lg:col-span-3 lg:col-start-10 lg:row-span-6 lg:row-start-1"
+    ),
     background: (
       <Image
         src="/images/city/guangzhou.jpg"
@@ -114,8 +128,10 @@ const bentos: Bento[] = [
   {
     id: "6",
     name: "CHONGQING",
-    className:
-      "col-span-3 col-start-4 row-span-3 row-start-10 lg:col-span-3 lg:col-start-10 lg:row-span-6 lg:row-start-7",
+    className: cn(
+      "col-span-3 col-start-4 row-span-3 row-start-10",
+      "lg:col-span-3 lg:col-start-10 lg:row-span-6 lg:row-start-7"
+    ),
     background: (
       <Image
         src="/images/city/chongqing.jpg"
