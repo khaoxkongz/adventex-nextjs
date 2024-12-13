@@ -28,7 +28,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <div className="relative flex min-h-screen flex-col bg-background">
           <div data-wrapper="" className="border-border/40">
-            <div className="mx-auto w-full border-border/40 min-[1800px]:max-w-[1536px] min-[1800px]:border-x">
+            <div className="mx-auto w-full border-border/40 min-[1800px]:max-w-screen-2xl min-[1800px]:border-x">
               <SiteHeader />
               <main className="flex-1">{children}</main>
               <SiteFooter />
