@@ -1,7 +1,7 @@
 import * as React from "react"
 import type { Metadata } from "next"
 
-import { krubSans } from "~/lib/fonts"
+import { promptSans } from "~/lib/fonts"
 import { cn } from "~/lib/utils"
 import { SiteFooter } from "~/components/shared/site-footer"
 import { SiteHeader } from "~/components/shared/site-header"
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          krubSans.variable
+          promptSans.variable
         )}
       >
         <div className="relative flex min-h-screen flex-col bg-background">
