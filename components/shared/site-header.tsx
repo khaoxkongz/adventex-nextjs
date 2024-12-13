@@ -1,71 +1,43 @@
-"use client"
-
 import * as React from "react"
+import Image from "next/image"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 
-import { cn } from "~/lib/utils"
 import { DesktopNavigation } from "~/components/shared/desktop-navigation"
 import { MobileNavigation } from "~/components/shared/mobile-navigation"
 
 export const SiteHeader = () => {
-  const pathname = usePathname()
-
   return (
     <header className="sticky inset-x-0 top-0 z-50 h-[72px] border-b bg-white/80 backdrop-blur-md">
       <div className="container mx-auto flex h-full items-center justify-between px-4">
-        <Link href="/" className="pl-1 text-2xl font-bold text-primary">
-          ADVENTEX
+        <Link href="/">
+          <picture>
+            <source
+              media="(min-width: 768px)"
+              srcSet="/adventex-logo.png"
+              width="390"
+              height="80"
+            />
+            <source
+              media="(max-width: 767px)"
+              srcSet="/adventex-logo.svg"
+              width="40"
+              height="40"
+            />
+            <Image
+              src="/adventex-logo.png"
+              alt="Adventex logo"
+              width="390"
+              height="80"
+              className="size-10 md:h-[40px] md:w-[200px]"
+            />
+          </picture>
+          <span className="sr-only">Adventex</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:block">
-          <div className="flex items-center gap-2">
-            <Link
-              href="/"
-              className={cn(
-                "px-4 py-2 text-base font-normal transition-colors",
-                pathname === "/" ? "text-primary" : "hover:text-primary"
-              )}
-            >
-              หน้าแรก
-            </Link>
-
-            <React.Suspense>
-              <DesktopNavigation />
-            </React.Suspense>
-
-            <Link
-              href="/blogs"
-              className={cn(
-                "px-4 py-2 transition-colors",
-                pathname === "/blogs" ? "text-primary" : "hover:text-primary"
-              )}
-            >
-              บทความ
-            </Link>
-
-            <Link
-              href="/about"
-              className={cn(
-                "px-4 py-2 transition-colors",
-                pathname === "/about" ? "text-primary" : "hover:text-primary"
-              )}
-            >
-              เกี่ยวกับเรา
-            </Link>
-
-            <Link
-              href="/contact"
-              className={cn(
-                "px-4 py-2 transition-colors",
-                pathname === "/contact" ? "text-primary" : "hover:text-primary"
-              )}
-            >
-              ติดต่อเรา
-            </Link>
-          </div>
-        </nav>
+        <React.Suspense>
+          <DesktopNavigation />
+        </React.Suspense>
 
         {/* Mobile Navigation */}
         <MobileNavigation />

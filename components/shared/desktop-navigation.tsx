@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { useSearchParams } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 
 import { cn } from "~/lib/utils"
 import {
@@ -12,7 +12,10 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "~/components/ui/navigation-menu"
+
+import { ListItem } from "./list-item"
 
 interface TravelItem {
   id: string
@@ -67,17 +70,31 @@ const travelItems: TravelItem[] = [
 ]
 
 export const DesktopNavigation = () => {
+  const pathname = usePathname()
   const searchParams = useSearchParams()
 
   const type = searchParams.get("type") as "study" | "travel"
 
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
+    <NavigationMenu className="hidden lg:block">
+      <NavigationMenuList className="gap-4 space-x-0">
+        <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent p-0 text-base font-normal transition-colors hover:bg-transparent hover:text-primary",
+                pathname === "/" ? "text-primary" : "hover:text-primary"
+              )}
+            >
+              หน้าแรก
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger
             className={cn(
-              "bg-transparent text-base font-normal transition-colors hover:bg-transparent hover:text-primary data-[state=open]:bg-transparent data-[state=open]:text-primary",
+              "bg-transparent p-0 text-base font-normal transition-colors hover:bg-transparent hover:text-primary data-[state=open]:bg-transparent data-[state=open]:text-primary",
               type === "study" ? "text-primary" : "hover:text-primary"
             )}
           >
@@ -119,7 +136,7 @@ export const DesktopNavigation = () => {
         <NavigationMenuItem>
           <NavigationMenuTrigger
             className={cn(
-              "bg-transparent text-base font-normal transition-colors hover:bg-transparent hover:text-primary data-[state=open]:bg-transparent data-[state=open]:text-primary",
+              "bg-transparent p-0 text-base font-normal transition-colors hover:bg-transparent hover:text-primary data-[state=open]:bg-transparent data-[state=open]:text-primary",
               type === "travel" ? "text-primary" : "hover:text-primary"
             )}
           >
@@ -135,33 +152,46 @@ export const DesktopNavigation = () => {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/blogs" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent p-0 text-base font-normal transition-colors hover:bg-transparent hover:text-primary",
+                pathname === "/blogs" ? "text-primary" : "hover:text-primary"
+              )}
+            >
+              บทความ
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/about" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent p-0 text-base font-normal transition-colors hover:bg-transparent hover:text-primary",
+                pathname === "/about" ? "text-primary" : "hover:text-primary"
+              )}
+            >
+              เกี่ยวกับเรา
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/contact" legacyBehavior passHref>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                "bg-transparent p-0 text-base font-normal transition-colors hover:bg-transparent hover:text-primary",
+                pathname === "/contact" ? "text-primary" : "hover:text-primary"
+              )}
+            >
+              ติดต่อเรา
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   )
 }
-
-const ListItem = React.forwardRef<
-  React.ComponentRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-primary focus:bg-accent focus:text-primary",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"

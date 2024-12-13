@@ -1,10 +1,5 @@
-"use client"
-
-import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
 
-import { cn } from "~/lib/utils"
 import { Button } from "~/components/ui/button"
 import {
   Sheet,
@@ -15,9 +10,17 @@ import {
   SheetTrigger,
 } from "~/components/ui/sheet"
 
-export function MobileNavigation() {
-  const pathname = usePathname()
+import { LinkItem } from "./link-item"
 
+const links = [
+  { href: "/", label: "หน้าแรก" },
+  { href: "/tours", label: "แพ็คเกจ" },
+  { href: "/blogs", label: "บทความ" },
+  { href: "/about", label: "เกี่ยวกับเรา" },
+  { href: "/contact", label: "ติดต่อเรา" },
+]
+
+export function MobileNavigation() {
   return (
     <Sheet>
       <SheetTrigger asChild className="lg:hidden">
@@ -32,63 +35,11 @@ export function MobileNavigation() {
         </SheetHeader>
         <nav>
           <ul className="mt-8 flex flex-col gap-4">
-            <li>
-              <Link
-                href="/"
-                className={cn(
-                  "text-lg font-medium transition-colors",
-                  pathname === "/" ? "text-primary" : "hover:text-primary"
-                )}
-              >
-                หน้าแรก
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/tours"
-                className={cn(
-                  "text-lg font-medium transition-colors",
-                  pathname === "/tours" ? "text-primary" : "hover:text-primary"
-                )}
-              >
-                แพ็คเกจ
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blogs"
-                className={cn(
-                  "text-lg font-medium transition-colors",
-                  pathname === "/blogs" ? "text-primary" : "hover:text-primary"
-                )}
-              >
-                บทความ
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className={cn(
-                  "text-lg font-medium transition-colors",
-                  pathname === "/about" ? "text-primary" : "hover:text-primary"
-                )}
-              >
-                เกี่ยวกับเรา
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className={cn(
-                  "text-lg font-medium transition-colors",
-                  pathname === "/contact"
-                    ? "text-primary"
-                    : "hover:text-primary"
-                )}
-              >
-                ติดต่อเรา
-              </Link>
-            </li>
+            {links.map((link) => (
+              <LinkItem key={link.href} href={link.href}>
+                {link.label}
+              </LinkItem>
+            ))}
           </ul>
         </nav>
       </SheetContent>
