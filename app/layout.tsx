@@ -9,8 +9,10 @@ import { SiteHeader } from "~/components/shared/site-header"
 import "~/styles/globals.css"
 
 export const metadata: Metadata = {
-  title: "",
-  description: "",
+  title:
+    "บริษัท แอดเวนท์เอ็กซ์ : ทัวร์ต่างประเทศ แพคเกจทัวร์ จัดกรุ๊ปส่วนตัวปี 2567",
+  description:
+    "แอดเวนท์เอ็กซ์ ผู้นำด้านบริการท่องเที่ยวครบวงจร เชี่ยวชาญการจัดทัวร์ต่างประเทศ แพคเกจทัวร์ส่วนตัว ทั้งแบบกรุ๊ปและส่วนตัว พร้อมบริการที่พัก ตั๋วเครื่องบิน วีซ่า และกิจกรรมท่องเที่ยวที่หลากหลาย ด้วยประสบการณ์กว่า 10 ปี",
 }
 
 interface RootLayoutProps {
