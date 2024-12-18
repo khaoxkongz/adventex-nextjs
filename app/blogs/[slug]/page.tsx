@@ -19,7 +19,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "~/components/ui/dialog"
-import { BookingCalendar } from "~/components/blogs/booking-calendar"
+import { BookingCalendar } from "~/components/booking-calendar"
 
 const tourBlogs = {
   "1": {
@@ -88,8 +88,7 @@ export default async function BlogSlugPage({ params }: BlogSlugProps) {
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+    <div>
       <div className="relative h-[60vh] min-h-[500px]">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -98,7 +97,7 @@ export default async function BlogSlugPage({ params }: BlogSlugProps) {
           <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container mx-auto px-4 text-center text-white">
+          <div className="container text-center text-white">
             <Badge className="mb-4">{blog.difficulty}</Badge>
             <h1 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
               {blog.title}
@@ -110,126 +109,130 @@ export default async function BlogSlugPage({ params }: BlogSlugProps) {
         </div>
       </div>
 
-      {/* Quick Info Bar */}
-      <div className="border-y bg-gray-50">
-        <div className="container mx-auto px-4 py-6">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-8">
-            <div className="flex items-center gap-2">
-              <Clock className="size-5 text-primary" />
-              <div>
-                <p className="text-sm text-muted-foreground">Duration</p>
-                <p className="font-medium">{blog.duration}</p>
+      <div className="border-grid border-b">
+        <div className="container-wrapper">
+          <div className="container py-6">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-8">
+              <div className="flex items-center gap-2">
+                <Clock className="size-5 text-primary" />
+                <div>
+                  <p className="text-sm text-muted-foreground">Duration</p>
+                  <p className="font-medium">{blog.duration}</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <Users className="size-5 text-primary" />
-              <div>
-                <p className="text-sm text-muted-foreground">Group Size</p>
-                <p className="font-medium">{blog.groupSize}</p>
+              <div className="flex items-center gap-2">
+                <Users className="size-5 text-primary" />
+                <div>
+                  <p className="text-sm text-muted-foreground">Group Size</p>
+                  <p className="font-medium">{blog.groupSize}</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <MapPin className="size-5 text-primary" />
-              <div>
-                <p className="text-sm text-muted-foreground">Location</p>
-                <p className="font-medium">{blog.location}</p>
+              <div className="flex items-center gap-2">
+                <MapPin className="size-5 text-primary" />
+                <div>
+                  <p className="text-sm text-muted-foreground">Location</p>
+                  <p className="font-medium">{blog.location}</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <Star className="size-5 text-yellow-400" />
-              <div>
-                <p className="text-sm text-muted-foreground">Rating</p>
-                <p className="font-medium">{blog.rating} / 5.0</p>
+              <div className="flex items-center gap-2">
+                <Star className="size-5 text-yellow-400" />
+                <div>
+                  <p className="text-sm text-muted-foreground">Rating</p>
+                  <p className="font-medium">{blog.rating} / 5.0</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Main Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
-          {/* Left Content */}
-          <div className="space-y-12 lg:col-span-2">
-            {blog.sections.map((section, index) => (
-              <div key={index} className="space-y-6">
-                <h2 className="text-2xl font-bold">{section.title}</h2>
-                <Image
-                  src={section.image}
-                  alt={section.title}
-                  width={1200}
-                  height={400}
-                  className="h-[400px] w-full rounded-lg object-cover"
-                />
-                <p className="leading-relaxed text-gray-600">
-                  {section.content}
-                </p>
-              </div>
-            ))}
+        <div className="border-grid border-b">
+          <div className="container-wrapper">
+            <div className="container py-12">
+              <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+                <div className="space-y-12 lg:col-span-2">
+                  {blog.sections.map((section, index) => (
+                    <div key={index} className="space-y-6">
+                      <h2 className="text-2xl font-bold">{section.title}</h2>
+                      <Image
+                        src={section.image}
+                        alt={section.title}
+                        width={1200}
+                        height={400}
+                        className="h-[400px] w-full rounded-lg object-cover"
+                      />
+                      <p className="leading-relaxed text-gray-600">
+                        {section.content}
+                      </p>
+                    </div>
+                  ))}
 
-            {/* Tour Highlights */}
-            <div className="space-y-6">
-              <h2 className="text-2xl font-bold">Tour Highlights</h2>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {blog.highlights.map((highlight, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Activity className="size-5 text-primary" />
-                    <span>{highlight}</span>
+                  <div className="space-y-6">
+                    <h2 className="text-2xl font-bold">Tour Highlights</h2>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                      {blog.highlights.map((highlight, index) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <Activity className="size-5 text-primary" />
+                          <span>{highlight}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
 
-            {/* What's Included */}
-            <div className="space-y-6">
-              <h2 className="text-2xl font-bold">What&apos;s Included</h2>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {blog.includes.map((item, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <DollarSign className="size-5 text-primary" />
-                    <span>{item}</span>
+                  <div className="space-y-6">
+                    <h2 className="text-2xl font-bold">What&apos;s Included</h2>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                      {blog.includes.map((item, index) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <DollarSign className="size-5 text-primary" />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-24">
-              <div className="space-y-6 rounded-lg border bg-white p-6">
-                <div className="text-center">
-                  <p className="text-sm text-muted-foreground">Starting from</p>
-                  <p className="text-3xl font-bold">${blog.price}</p>
-                  <p className="text-sm text-muted-foreground">per person</p>
                 </div>
 
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button className="w-full" size="lg">
-                      Book This Tour
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-3xl">
-                    <DialogHeader>
-                      <DialogTitle>Book Your Tour</DialogTitle>
-                    </DialogHeader>
-                    <BookingCalendar
-                      basePrice={blog.price}
-                      maxGroupSize={blog.groupSize}
-                    />
-                  </DialogContent>
-                </Dialog>
+                <div className="lg:col-span-1">
+                  <div className="sticky top-24">
+                    <div className="space-y-6 rounded-lg border bg-white p-6">
+                      <div className="text-center">
+                        <p className="text-sm text-muted-foreground">
+                          Starting from
+                        </p>
+                        <p className="text-3xl font-bold">${blog.price}</p>
+                        <p className="text-sm text-muted-foreground">
+                          per person
+                        </p>
+                      </div>
 
-                <div className="text-sm text-muted-foreground">
-                  <p className="mb-2 flex items-center gap-2">
-                    <CalendarRange className="size-4" />
-                    Free cancellation up to 24h before the tour
-                  </p>
-                  <p className="flex items-center gap-2">
-                    <Users className="size-4" />
-                    Small groups or private tours available
-                  </p>
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button className="w-full" size="lg">
+                            Book This Tour
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-3xl">
+                          <DialogHeader>
+                            <DialogTitle>Book Your Tour</DialogTitle>
+                          </DialogHeader>
+                          <BookingCalendar
+                            basePrice={blog.price}
+                            maxGroupSize={blog.groupSize}
+                          />
+                        </DialogContent>
+                      </Dialog>
+
+                      <div className="text-sm text-muted-foreground">
+                        <p className="mb-2 flex items-center gap-2">
+                          <CalendarRange className="size-4" />
+                          Free cancellation up to 24h before the tour
+                        </p>
+                        <p className="flex items-center gap-2">
+                          <Users className="size-4" />
+                          Small groups or private tours available
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

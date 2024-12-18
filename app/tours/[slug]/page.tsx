@@ -1,8 +1,8 @@
 import { Activity, DollarSign } from "lucide-react"
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
-import { ImageGallery } from "~/components/tours/image-gallery"
-import { TourInfo } from "~/components/tours/tour-info"
+import { ImageGallery } from "~/components/image-gallery"
+import { TourInfo } from "~/components/tour-info"
 
 const tourData = {
   id: "1",
@@ -74,107 +74,105 @@ const tourData = {
 
 export default function TourSlugPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        {/* Image Gallery */}
-        <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          <ImageGallery tourData={tourData} />
+    <div className="border-grid border-b">
+      <div className="container-wrapper">
+        <div className="container py-8">
+          <div className="mb-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <ImageGallery tourData={tourData} />
+            <TourInfo tourData={tourData} />
+          </div>
 
-          {/* Tour Info */}
-          <TourInfo tourData={tourData} />
-        </div>
+          <Tabs defaultValue="itinerary" className="mt-12">
+            <TabsList className="h-auto -space-x-px bg-background p-0 shadow-sm rtl:space-x-reverse">
+              <TabsTrigger
+                value="itinerary"
+                className="relative overflow-hidden rounded-none border border-border py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 first:rounded-s last:rounded-e data-[state=active]:bg-muted data-[state=active]:after:bg-primary"
+              >
+                Itinerary
+              </TabsTrigger>
+              <TabsTrigger
+                value="included"
+                className="relative overflow-hidden rounded-none border border-border py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 first:rounded-s last:rounded-e data-[state=active]:bg-muted data-[state=active]:after:bg-primary"
+              >
+                What&apos;s Included
+              </TabsTrigger>
+              <TabsTrigger
+                value="reviews"
+                className="relative overflow-hidden rounded-none border border-border py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 first:rounded-s last:rounded-e data-[state=active]:bg-muted data-[state=active]:after:bg-primary"
+              >
+                Reviews
+              </TabsTrigger>
+            </TabsList>
 
-        {/* Tabs Section */}
-        <Tabs defaultValue="itinerary" className="mt-12">
-          <TabsList className="h-auto -space-x-px bg-background p-0 shadow-sm rtl:space-x-reverse">
-            <TabsTrigger
-              value="itinerary"
-              className="relative overflow-hidden rounded-none border border-border py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 first:rounded-s last:rounded-e data-[state=active]:bg-muted data-[state=active]:after:bg-primary"
-            >
-              Itinerary
-            </TabsTrigger>
-            <TabsTrigger
-              value="included"
-              className="relative overflow-hidden rounded-none border border-border py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 first:rounded-s last:rounded-e data-[state=active]:bg-muted data-[state=active]:after:bg-primary"
-            >
-              What&apos;s Included
-            </TabsTrigger>
-            <TabsTrigger
-              value="reviews"
-              className="relative overflow-hidden rounded-none border border-border py-2 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 first:rounded-s last:rounded-e data-[state=active]:bg-muted data-[state=active]:after:bg-primary"
-            >
-              Reviews
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="itinerary" className="mt-6">
-            <div className="space-y-8">
-              {tourData.itinerary.map((day) => (
-                <div
-                  key={day.day}
-                  className="relative border-l-2 border-gray-200 pb-8 pl-8 last:pb-0"
-                >
-                  <div className="absolute left-[-9px] top-0 size-4 rounded-full bg-primary" />
-                  <div>
-                    <h3 className="mb-2 font-semibold">
-                      Day {day.day}: {day.title}
-                    </h3>
-                    <p className="mb-4 text-muted-foreground">
-                      {day.description}
-                    </p>
-                    <ul className="space-y-2">
-                      {day.activities.map((activity, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <Activity className="size-4 text-primary" />
-                          <span>{activity}</span>
-                        </li>
-                      ))}
-                    </ul>
+            <TabsContent value="itinerary" className="mt-6">
+              <div className="space-y-8">
+                {tourData.itinerary.map((day) => (
+                  <div
+                    key={day.day}
+                    className="relative border-l-2 border-gray-200 pb-8 pl-8 last:pb-0"
+                  >
+                    <div className="absolute left-[-9px] top-0 size-4 rounded-full bg-primary" />
+                    <div>
+                      <h3 className="mb-2 font-semibold">
+                        Day {day.day}: {day.title}
+                      </h3>
+                      <p className="mb-4 text-muted-foreground">
+                        {day.description}
+                      </p>
+                      <ul className="space-y-2">
+                        {day.activities.map((activity, index) => (
+                          <li key={index} className="flex items-center gap-2">
+                            <Activity className="size-4 text-primary" />
+                            <span>{activity}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="included" className="mt-6">
+              <div className="grid gap-8 md:grid-cols-2">
+                <div>
+                  <h3 className="mb-4 flex items-center gap-2 font-semibold">
+                    <DollarSign className="size-5 text-primary" />
+                    What&apos;s Included
+                  </h3>
+                  <ul className="space-y-2">
+                    {tourData.included.map((item, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <Activity className="size-4 text-green-500" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
-            </div>
-          </TabsContent>
-
-          <TabsContent value="included" className="mt-6">
-            <div className="grid gap-8 md:grid-cols-2">
-              <div>
-                <h3 className="mb-4 flex items-center gap-2 font-semibold">
-                  <DollarSign className="size-5 text-primary" />
-                  What&apos;s Included
-                </h3>
-                <ul className="space-y-2">
-                  {tourData.included.map((item, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <Activity className="size-4 text-green-500" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <h3 className="mb-4 flex items-center gap-2 font-semibold">
+                    <DollarSign className="size-5 text-primary" />
+                    What&apos;s Not Included
+                  </h3>
+                  <ul className="space-y-2">
+                    {tourData.excluded.map((item, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <Activity className="size-4 text-red-500" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <div>
-                <h3 className="mb-4 flex items-center gap-2 font-semibold">
-                  <DollarSign className="size-5 text-primary" />
-                  What&apos;s Not Included
-                </h3>
-                <ul className="space-y-2">
-                  {tourData.excluded.map((item, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <Activity className="size-4 text-red-500" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </TabsContent>
+            </TabsContent>
 
-          <TabsContent value="reviews" className="mt-6">
-            <div className="py-12 text-center">
-              <p className="text-muted-foreground">Reviews coming soon...</p>
-            </div>
-          </TabsContent>
-        </Tabs>
+            <TabsContent value="reviews" className="mt-6">
+              <div className="py-12 text-center">
+                <p className="text-muted-foreground">Reviews coming soon...</p>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
       </div>
     </div>
   )
