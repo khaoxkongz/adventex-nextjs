@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "~/components/ui/sheet"
-import { TourFilters } from "~/components/tours/tour-filters"
+import { TourFilters } from "~/components/tour-filters"
 
 interface TourSearchProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
@@ -97,7 +97,6 @@ const TourSearchControls = React.forwardRef<
           />
         </div>
 
-        {/* Mobile Filters */}
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>

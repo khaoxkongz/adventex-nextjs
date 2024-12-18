@@ -10,9 +10,13 @@ export const Gallery = () => {
   }))
 
   return (
-    <section>
-      <div className="mb-12 text-center">
-        <h2 className="mb-4 text-3xl font-bold">แกลลอรี่</h2>
+    <section className="space-y-4 md:space-y-8 lg:space-y-12">
+      <div className="flex flex-col gap-4 text-center">
+        <h2 className="text-4xl font-bold md:text-6xl">แกลลอรี่</h2>
+        <p className="mx-auto max-w-lg text-lg text-muted-foreground">
+          รวมภาพความประทับใจจากการเดินทางของลูกค้าที่ไว้วางใจให้เราดูแล
+          ทุกช่วงเวลาแห่งความสุขที่เราได้มีส่วนร่วมสร้างขึ้น
+        </p>
       </div>
 
       <div className="columns-2 gap-4 sm:columns-3">

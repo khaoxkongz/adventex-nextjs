@@ -38,14 +38,14 @@ export const SearchDestinations = () => {
           <Label className="block text-sm font-medium">ปลายทาง</Label>
           <Input
             placeholder="เลือกเมืองปลายทาง"
-            className="w-full bg-white/90"
+            className="w-full shadow-none"
           />
         </div>
         <div className="space-y-2">
           <Label className="block text-sm font-medium">แพ็คเกจทัวร์</Label>
           <Input
             placeholder="เลือกแพ็คเกจทัวร์"
-            className="w-full bg-white/90"
+            className="w-full shadow-none"
           />
         </div>
         <div className="space-y-2">
@@ -75,7 +75,7 @@ export const SearchDestinations = () => {
                   )}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
+              <PopoverContent className="w-auto p-0 shadow-none" align="start">
                 <Calendar
                   initialFocus
                   mode="range"

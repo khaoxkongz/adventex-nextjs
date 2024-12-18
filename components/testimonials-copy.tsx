@@ -2,7 +2,6 @@ import Image from "next/image"
 
 import { cn } from "~/lib/utils"
 import { Marquee } from "~/components/magicui/marquee"
-import { SparklesText } from "~/components/magicui/sparkles-text"
 
 const reviews = [
   {
@@ -122,17 +121,17 @@ const ReviewCard = ({ img, name, username, body }: ReviewCardProps) => {
 
 const Testimonials = () => {
   return (
-    <section className="grid gap-8">
-      <div className="grid gap-2">
-        <span className="text-4xl font-bold text-primary">
+    <section className="grid">
+      <div className="z-10 flex flex-col">
+        <span className="text-xl font-semibold text-primary md:text-4xl">
           สิ่งที่พวกเขาพูด
         </span>
-        <SparklesText
-          text="ลูกค้าของเรา พูดถึงเรายังไงบ้าง"
-          className="text-pretty leading-tight"
-        />
+        <div className="flex flex-col text-4xl font-bold md:text-6xl">
+          <span>ลูกค้าของเรา</span>
+          <span>พูดถึงเรายังไงบ้าง</span>
+        </div>
       </div>
-      <div className="relative flex h-[40rem] w-full flex-col items-center justify-center overflow-hidden">
+      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
         <Marquee pauseOnHover>
           {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />

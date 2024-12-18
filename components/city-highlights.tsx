@@ -1,4 +1,3 @@
-import { SparklesText } from "~/components/magicui/sparkles-text"
 import {
   BentoCard,
   BentoCardContent,
@@ -7,7 +6,8 @@ import {
   BentoCardLink,
   BentoCardTitle,
   BentoGrid,
-} from "~/components/shared/bento-grid"
+} from "~/components/bento-grid"
+import { SparklesText } from "~/components/magicui/sparkles-text"
 
 const cities = [
   {
@@ -71,7 +71,7 @@ export const CityHighlights = () => {
       <div className="mb-8 grid gap-8 text-center">
         <SparklesText
           text="เมืองยอดนิยม"
-          className="text-6xl font-medium leading-none"
+          className="text-4xl font-medium leading-none md:text-6xl"
         />
         <p className="mx-auto max-w-2xl text-pretty text-lg text-muted-foreground">
           สำหรับนักท่องเที่ยวที่ต้องการสัมผัสวัฒนธรรมและประสบการณ์ที่หลากหลาย

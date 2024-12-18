@@ -47,8 +47,8 @@ export const TourCard = ({ tour, viewMode }: TourCardProps) => {
         <Image
           src={tour.image}
           alt={tour.title}
-          width={600}
-          height={800}
+          width={200}
+          height={200}
           className="size-full bg-contain bg-center bg-no-repeat transition-transform duration-300 group-hover:scale-105"
         />
       </div>

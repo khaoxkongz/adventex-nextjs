@@ -12,7 +12,7 @@ import {
   PageHeroItem,
   PageHeroText,
   PageHeroTitle,
-} from "~/components/shared/page-hero"
+} from "~/components/page-hero"
 import studyTourHero from "~/assets/images/study-tour-hero.png"
 import travelTourHero from "~/assets/images/travel-tour-hero.png"
 

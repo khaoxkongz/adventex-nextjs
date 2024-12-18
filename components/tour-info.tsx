@@ -13,7 +13,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "~/components/ui/dialog"
-import { BookingCalendar } from "~/components/tours/booking-calendar"
+import { BookingCalendar } from "~/components/booking-calendar"
 
 interface TourInfoProps {
   tourData: {

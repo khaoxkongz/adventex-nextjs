@@ -5,7 +5,7 @@ import { Star } from "lucide-react"
 import { BlurFade } from "~/components/magicui/blur-fade"
 import { ShineBorder } from "~/components/magicui/shine-border"
 
-import { SparklesText } from "../magicui/sparkles-text"
+import { SparklesText } from "./magicui/sparkles-text"
 
 const testimonials = [
   {
