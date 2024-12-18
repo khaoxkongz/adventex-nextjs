@@ -11,11 +11,6 @@ export default {
   ],
   theme: {
     extend: {
-      container: {
-        screens: {
-          "2xl": "75rem",
-        },
-      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
