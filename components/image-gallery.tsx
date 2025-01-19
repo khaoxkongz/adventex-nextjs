@@ -10,7 +10,7 @@ interface ImageGalleryProps {
     id: string
     title: string
     description: string
-    price: number
+    defaultPrice: number
     location: string
     images: (string | StaticImageData)[]
     highlights: string[]

@@ -3,7 +3,7 @@ import { FeaturedTours } from "~/components/featured-tours"
 import { Gallery } from "~/components/gallery"
 import { HeroCarousel } from "~/components/hero-carousel"
 import { SearchDestinations } from "~/components/search-destinations"
-import { Testimonials } from "~/components/testimonials-copy"
+import { Testimonials } from "~/components/testimonials"
 
 export default function Home() {
   return (

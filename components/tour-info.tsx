@@ -10,7 +10,7 @@ interface TourInfoProps {
     id: string
     title: string
     description: string
-    price: number
+    defaultPrice: number
     location: string
     images: (string | StaticImageData)[]
     highlights: string[]
@@ -46,7 +46,7 @@ export const TourInfo = ({ tourData }: TourInfoProps) => {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm text-muted-foreground">ราคาเข้าร่วมโครงการ</p>
-            <p className="text-3xl font-bold">{tourData.price}.-</p>
+            <p className="text-3xl font-bold">{tourData.defaultPrice}.-</p>
           </div>
           <Button className="p-8 text-2xl">สมัครเรียน</Button>
         </div>

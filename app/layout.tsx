@@ -1,5 +1,6 @@
 import * as React from "react"
 import type { Metadata, Viewport } from "next"
+import { NuqsAdapter } from "nuqs/adapters/next/app"
 
 import { META_THEME_COLORS, siteConfig } from "~/config/site"
 import { promptSans } from "~/lib/fonts"
@@ -50,18 +51,20 @@ export default function RootLayout({ breadcrumb, children }: RootLayoutProps) {
       </head>
       <body className={cn("min-h-screen bg-background font-sans antialiased", promptSans.variable)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange enableColorScheme>
-          <div vaul-drawer-wrapper="">
-            <div className="relative flex min-h-screen flex-col bg-background">
-              <div data-wrapper="" className="border-grid flex flex-1 flex-col">
-                <SiteHeader />
-                <main className="flex flex-1 flex-col">
-                  {breadcrumb}
-                  {children}
-                </main>
-                <SiteFooter />
+          <NuqsAdapter>
+            <div vaul-drawer-wrapper="">
+              <div className="relative flex min-h-screen flex-col bg-background">
+                <div data-wrapper="" className="border-grid flex flex-1 flex-col">
+                  <SiteHeader />
+                  <main className="flex flex-1 flex-col">
+                    {breadcrumb}
+                    {children}
+                  </main>
+                  <SiteFooter />
+                </div>
               </div>
             </div>
-          </div>
+          </NuqsAdapter>
         </ThemeProvider>
       </body>
     </html>

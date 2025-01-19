@@ -1,102 +1,166 @@
-import * as React from "react"
-import Image from "next/image"
-import { Star } from "lucide-react"
+import { cn } from "~/lib/utils"
+import { Avatar, AvatarImage } from "~/components/ui/avatar"
+import { Card } from "~/components/ui/card"
+import { Marquee } from "~/components/magicui/marquee"
+import { SparklesText } from "~/components/magicui/sparkles-text"
 
-import { BlurFade } from "~/components/magicui/blur-fade"
-import { ShineBorder } from "~/components/magicui/shine-border"
-
-import { SparklesText } from "./magicui/sparkles-text"
-
-const testimonials = [
+const testimonails = [
   {
-    id: 1,
-    name: "Park Taeyang",
-    text: "แพลตฟอร์มนี้มีประโยชน์มาก เพราะมีสถานที่สวยงามมากมายให้เลือก และยังช่วยฉันค้นหาจุดหมายปลายทางที่น่าสนใจได้ดีมาก บริการก็ดีมาก ฉันจึงชอบใช้ Adventex เมื่อฉันต้องการเดินทางกับครอบครัวของฉัน.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-    rating: 5,
+    author: {
+      name: "Kanpicha Worawong",
+      handle: "@kanpichinese",
+      avatar: "https://avatar.vercel.sh/sarahc",
+    },
+    text: "เรียนภาษาจีนพร้อมทั้งเที่ยวอีก ไม่มีพื้นฐานสามารถไปได้ คือดีมากกก!! ใครที่ยังไม่มีพื้นฐานอยากให้มาลองสักครั้ง มีทั้งกิจกรรม ได้เเข้าเทศกาลฟิมะฟรี บอกเลยว่าห้ามพลาด",
   },
   {
-    id: 2,
-    name: "Alex Thompson",
-    text: "ฉันใช้ Adventex สำหรับการผจญภัยในการเดินทางทั้งหมดของฉัน และรู้สึกประทับใจในความใส่ใจในรายละเอียดและบริการที่เป็นส่วนตัวมาก ไกด์ท้องถิ่นที่พวกเขาร่วมงานด้วยมีความรู้และหลงใหลในการแบ่งปันวัฒนธรรมของพวกเขา.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-    rating: 5,
+    author: {
+      name: "Parinya Suttiwat",
+      handle: "@parin.mandarin",
+      avatar: "https://avatar.vercel.sh/davidw",
+    },
+    text: "ที่หนูเรียนจะเป็นคลาส B ค่ะตอนเรียนจะมีพินอินนิดๆหน่อยๆอาจารย์ในคลาสใจดีมากกกกกเรียนสนุกสุดๆ การเรียนจีนที่นี่คือดีเลยค่ะ สำเนียงคนฮาร์บินฟังง่าย เข้าใจง่าย ที่นี้เริ่มเรียน 08:00-12:20 น. บางวันหนูก็จะมีเรียนบ่ายด้วยถึง 17:00 น. เเต่ส่วนมากเรียนสนุกไม่เครียดค่ะ อยู่จีนไม่ต้องกังวลเลยพวกพี่ๆพร้อมให้คำปรึกษา เเบบ 24 ชม. ที่เป็น 24 ชม. จริงๆ ค้าบ",
   },
   {
-    id: 3,
-    name: "Sofia Martinez",
-    text: "สิ่งที่ทำให้ Adventex แตกต่างคือความมุ่งมั่นในการสร้างประสบการณ์ที่แท้จริง ทุกทริปที่ฉันจองกับพวกเขาได้รับการคัดสรรมาอย่างดี ทำให้ฉันสามารถดื่มด่ำไปกับประเพณีท้องถิ่นได้อย่างเต็มที่ พร้อมทั้งได้พักในที่พักที่สะดวกสบาย.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-    rating: 5,
+    author: {
+      name: "Chonlada Kriangkrai",
+      handle: "@chonnichinese",
+      avatar: "https://avatar.vercel.sh/emmat",
+    },
+    text: "หนูไปเป็นเด็กคอร์ส 1 เดือนค่ะ เป็นการเรียนแบบพื้นฐาน แต่พวกหนูมีพื้นฐานอยู่แล้ว ก็สามารถบอกเหล่าชือได้ เหล่าชือจะปรับการสอนให้เข้ากับพื้นฐานของเรา พี่ๆทางโครงการให้คำปรึกษาตลอดค่ะ ไม่ว่าจะเป็นเรื่องเรียน เรื่องการท่องเที่ยว เรื่องที่พัก สภาพแวดล้อมที่ฮาร์บินไม่ค่อยวุ่นวายค่ะ ไม่อันตราย รถสาธารณะราคาไม่แพง เป็นเมืองที่ใช้ชีวิตง่าย",
+  },
+  {
+    author: {
+      name: "Natcha Saengsuriya",
+      handle: "@nat.mandarinstory",
+      avatar: "https://avatar.vercel.sh/michaell",
+    },
+    text: "ไปจีนครั้งนี้สนุกมากกก เพื่อนทุกคนช่วยกันเรียน เหล่าซือน่ารักทุกคนเลย ใจดีมาก ๆ เหล่าซือสอนแล้วอธิบายและแตกคำศัพท์เยอะมาก ๆ ได้ความรู้เต็ม ๆ วิชาวัฒนธรรมจีนก็สนุกมากค่ะ กินอาหารท้องถิ่นและเรียนดนตรีจีน ได้เพื่อนเพิ่มเยอะเลย คนจีนใจดีกับเรามากค่ะ และพี่ ๆ ในโครงการคอยช่วยเหลือและดูแลตลอดเลยค่ะ เป็นโครงการที่อบอุ่นมากค่ะ",
+  },
+  {
+    author: {
+      name: "Patcharin Srisawat",
+      handle: "@pach.chinesecorner",
+      avatar: "https://avatar.vercel.sh/lisaw",
+    },
+    text: "หนูไปเรียน 3 เดือนค่ะ เรื่องการเรียนรู้สึกว่าการเรียนการสอนโอเคดี เหล่าซือแต่ละคนที่สอนใจดีมากๆค่ะ ใจดีแบบใจดีจริงๆ มีเรียนทั้งภาคเช้าและบ่ายและได้เรียนวัฒนธรรมด้วยค่ะ เหล่าซือดูแลเอาใจใส่ดีมากๆค่ะ ส่วนเรื่องโครงการ โครงการดูแลดีค่ะ พร้อมช่วยเหลือตลอด ปรึกษาได้ตลอดเวลา",
+  },
+  {
+    author: {
+      name: "Tanya Wiriyakit",
+      handle: "@tanya.chinesejourney",
+      avatar: "https://avatar.vercel.sh/toma",
+    },
+    text: "รู้สึกว่าค่อนข้างสะดวกในระดับนึงเลยค่ะ อาบน้ำอุ่นสบายมากพี่ในโครงการคุยง่าย เฟรนด์ลี่มากเลยค่ะ คุยด้วยแล้วสบายใจ เรียนไม่ได้หนัก เหล่าซือใจดีค่ะ!",
+  },
+  {
+    author: {
+      name: "Pitchtida Sakkanan",
+      handle: "@pitch.learnchinese",
+      avatar: "https://avatar.vercel.sh/jessicak",
+    },
+    text: "ไปเรียนภาษาจีนครั้งนี้ รู้สึกว่าได้ศัพท์ที่ใช้ในชีวิตประจำวันเยอะมากๆ ที่นี่จะสอนแบบบรรยายจีนล้วน ควรมีพื้นฐานภาษาไปนิดนึงก็ดี ถ้าไปแบบกลางเทอมนะ แต่เหล่าซือที่นี่ก็น่ารักสุดๆ สอนแบบค่อยๆไป เพราะเราอยู่คลาสA มีเรียกให้อ่านบ้างนิดหน่อย คำไหนอ่านไม่ออกเหล่าซือก็คอยบอกตลอด ไม่ต้องกลัวจะอ่านผิดเลย สุดท้ายนี้ขอบคุณต๋ง สตาฟที่ดูแลที่จีน ดูแลเราดีมากๆ แบบเราขอความช่วยเหลือไปกี่ครั้งก็ช่วยเหลือตลอด ขอบคุณมากๆเลย",
+  },
+  {
+    author: {
+      name: "Anawin Rattanachote",
+      handle: "@anawin.mandarinpath",
+      avatar: "https://avatar.vercel.sh/ryanz",
+    },
+    text: "พี่ๆในโครงการเป็นกันเองและเฟรนลี่มากๆค่ะ พี่ๆดูแลดีมากๆ ดูแลแบบดีสุดๆเลยค่ะ ดูแลทุกอย่างช่วยทุกอย่างเลยค่ะ มีปัญหาอะไรทักหาให้พี่ๆช่วยพี่ๆก็พร้อมช่วยเสมอเลยค่ะ และรู้สึกปลอดภัยมากๆ ค่ะไม่รู้สึกกลัวอะไรเลย เป็นโครงการที่รู้สึกว่าถ้ามีโอกาสจะไปกับโครงการนี้อีกครั้งแน่นอนค่ะ",
+  },
+  {
+    author: {
+      name: "Sirinnapa Nuanchan",
+      handle: "@sirinna.chineseworld",
+      avatar: "https://avatar.vercel.sh/sophiem",
+    },
+    text: "ไปเรียนที่จีนรู้สึกว่าเปิดประสบการณ์หลายอย่างมาก การได้คุยกับคนจีนฝึกภาษากับคนจีนตรงๆเรียนรู้และเข้าใจมากขึ้นเหล่าซือใจดีมากตรงไหนไม่เข้าใจก็อธิบายให้ฟัง ส่วนหอพักในห้องมี อุปกรณ์ให้ใช้สะดวกมาก ถ้าอยากทํากับข้าวในหอพักก็มีครัวกลางให้ บรรยากาศในมหาลัยดีมากตอนช่วงที่ไปอากาศกําลังสบายอยากไปไหนหน้ามหาลัยก็มีรถไฟฟ้าใต้ดินสะดวกต่อการเดินทาง มีพี่ๆพาไปชมสถานที่ท่องเที่ยวแนะนําสถานที่เที่ยวสวยๆ ให้คําปรึกษาตลอด",
+  },
+  {
+    author: {
+      name: "Krittin Pakdeewong",
+      handle: "@krittin.chinesevibes",
+      avatar: "https://avatar.vercel.sh/jamesp",
+    },
+    text: "พี่ๆในโครงการดูแลดีมากๆค่อนข้างเป็นกันเองเวลามีปัญหาอะไรพี่ๆทีมงานก็จะหาวิธีแก้ปัญหาให้เร็วมากๆ และเวลาเรียนก้ไม่เครียดเพราะว่าตารางสอนค่อนข้างจัดเวลาต่างๆได้ดี เป็นฟิลแบบไปเรียนแล้วก็ไปเที่ยวในตัวทำให้รู้สึกผ่อนคลายไม่เครียด คนที่ฮาร์บินก็น่ารักมาก เหล่าซือสอนสนุกเป็นกันเองมากๆ น่ารักมากคับ",
+  },
+  {
+    author: {
+      name: "Waranya Theerapakdee",
+      handle: "@wara.mandarinstyle",
+      avatar: "https://avatar.vercel.sh/annag",
+    },
+    text: "ได้ลองไปใช้ชีวิตที่ต่างประเทศครั้งแรกเปิดโลกมากเลยค่ะที่นู่นต่างจากที่ไทยมากอากาศดีสุดๆ เรื่องเรียนเรียนไม่ค่อยหนักเลยค่ะเรียนกับครูเจ้าของภาษาเลย ครูแต่ละคนใจดีมากเลยค่ะ ถ้ามีโอกาสก็จะไปอีกแน่นอนค่ะ",
   },
 ]
 
+const firstRow = testimonails.slice(0, 5)
+const secondRow = testimonails.slice(5)
+
+interface TestimonailCardProps {
+  author: {
+    name: string
+    handle: string
+    avatar: string
+  }
+  text: string
+}
+
+const TestimonialCard = ({ author, text }: TestimonailCardProps) => {
+  return (
+    <Card
+      className={cn(
+        "flex flex-col rounded-lg border-t",
+        "bg-gradient-to-b from-muted/50 to-muted/10",
+        "p-4 text-start sm:p-6",
+        "hover:from-muted/60 hover:to-muted/20",
+        "h-full max-h-full max-w-[320px] sm:max-w-[320px]",
+        "transition-colors duration-300"
+      )}
+    >
+      <div className="flex items-center gap-3">
+        <Avatar className="size-12">
+          <AvatarImage src={author.avatar} alt={author.name} />
+        </Avatar>
+        <div className="flex flex-col items-start">
+          <h3 className="text-base font-semibold leading-none">{author.name}</h3>
+          <p className="text-sm text-muted-foreground">{author.handle}</p>
+        </div>
+      </div>
+      <p className="mt-4 text-sm text-muted-foreground">{text}</p>
+    </Card>
+  )
+}
+
 export const Testimonials = () => {
   return (
-    <section className="grid gap-8">
-      <div className="grid gap-2">
-        <span className="font-semibold text-primary">สิ่งที่พวกเขาพูด</span>
-        <SparklesText text="ลูกค้าของเรา พูดถึงเรายังไงบ้าง" className="text-6xl font-normal leading-none" />
+    <section className="grid gap-4">
+      <div className="flex flex-col items-center gap-4 text-center">
+        <span className="text-xl font-semibold text-primary xl:text-4xl">ทำไมต้อง Adventex Education?</span>
+        <SparklesText
+          text="ลูกค้าของเรา พูดถึงเรายังไงบ้าง"
+          className="text-4xl font-normal leading-none xl:text-6xl"
+        />
+        <p className="max-w-prose text-lg text-muted-foreground xl:text-xl">
+          Adventex Education เกิดจากความมุ่งมั่นและแรงบันดาลใจของนักศึกษาที่เคยศึกษาในมหาวิทยาลัยชั้นนำของประเทศจีน
+          เราตระหนักถึงความสำคัญของ &quot;ภาษาที่สาม&quot; ในโลกอนาคต ซึ่งไม่ได้เป็นเพียงเครื่องมือในการสื่อสาร
+          แต่ยังเป็นสะพานที่เชื่อมโยงวัฒนธรรม ความรู้ และโอกาสระดับโลก
+        </p>
       </div>
-
-      <div className="grid gap-8 md:grid-cols-3">
-        {testimonials.map((testimonial, idx) => (
-          <BlurFade key={testimonial.id} delay={0.1 * idx}>
-            <ShineBorder
-              className="relative size-full rounded-lg border bg-background p-4 sm:p-6 md:p-8"
-              color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-            >
-              {/* Decorative Elements */}
-              <div className="absolute -right-2 -top-2 size-4 text-primary">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="size-full">
-                  <path d="M9.153 5.408C10.42 3.136 11.053 2 12 2c.947 0 1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182c.28.213.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506c-.766.582-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452c-.347 0-.674.15-1.329.452l-.595.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882c.293-.941 1.523-1.22 3.983-1.776l.636-.144c.699-.158 1.048-.237 1.329-.45c.28-.213.46-.536.82-1.182l.328-.588Z" />
-                </svg>
-              </div>
-
-              <div className="absolute -left-2 -top-2 size-4 text-teal-500">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="size-full">
-                  <path d="M9.153 5.408C10.42 3.136 11.053 2 12 2c.947 0 1.58 1.136 2.847 3.408l.328.588c.36.646.54.969.82 1.182c.28.213.63.292 1.33.45l.636.144c2.46.557 3.689.835 3.982 1.776c.292.94-.546 1.921-2.223 3.882l-.434.507c-.476.557-.715.836-.822 1.18c-.107.345-.071.717.001 1.46l.066.677c.253 2.617.38 3.925-.386 4.506c-.766.582-1.918.051-4.22-1.009l-.597-.274c-.654-.302-.981-.452-1.328-.452c-.347 0-.674.15-1.329.452l-.595.274c-2.303 1.06-3.455 1.59-4.22 1.01c-.767-.582-.64-1.89-.387-4.507l.066-.676c.072-.744.108-1.116 0-1.46c-.106-.345-.345-.624-.821-1.18l-.434-.508c-1.677-1.96-2.515-2.941-2.223-3.882c.293-.941 1.523-1.22 3.983-1.776l.636-.144c.699-.158 1.048-.237 1.329-.45c.28-.213.46-.536.82-1.182l.328-.588Z" />
-                </svg>
-              </div>
-
-              <div className="relative">
-                {/* Testimonial Content */}
-                <div className="mb-6">
-                  <p className="leading-relaxed text-gray-600">&quot;{testimonial.text}&quot;</p>
-                </div>
-
-                {/* Author Info */}
-                <div className="flex items-center gap-4">
-                  <div className="relative">
-                    <div className="size-16 overflow-hidden rounded-full">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                        width={160}
-                        height={160}
-                        className="size-full object-cover"
-                      />
-                    </div>
-                    <div className="absolute -bottom-2 -right-2 rounded-full bg-teal-500 p-1.5">
-                      <svg className="size-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold">{testimonial.name}</h4>
-                    <div className="mt-1 flex gap-0.5">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="size-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ShineBorder>
-          </BlurFade>
-        ))}
+      <div className="relative flex size-full flex-col items-center justify-center overflow-hidden">
+        <Marquee pauseOnHover>
+          {firstRow.map((testimonail) => (
+            <TestimonialCard key={testimonail.author.name} author={testimonail.author} text={testimonail.text} />
+          ))}
+        </Marquee>
+        <Marquee reverse pauseOnHover>
+          {secondRow.map((testimonail) => (
+            <TestimonialCard key={testimonail.author.name} author={testimonail.author} text={testimonail.text} />
+          ))}
+        </Marquee>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
       </div>
     </section>
   )

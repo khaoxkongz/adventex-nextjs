@@ -1,11 +1,13 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Clock } from "lucide-react"
 
 import { Badge } from "~/components/ui/badge"
+import { Button } from "~/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "~/components/ui/card"
 import { Separator } from "~/components/ui/separator"
 import { SparklesText } from "~/components/magicui/sparkles-text"
-import { tours } from "~/data/tours"
+import { initialPrograms } from "~/data/programs"
 
 export const FeaturedTours = () => {
   return (
@@ -18,14 +20,14 @@ export const FeaturedTours = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {tours.splice(0, 3).map((tour) => (
+        {initialPrograms.splice(0, 3).map((tour) => (
           <Card
             key={tour.id}
             className="group relative flex flex-col overflow-hidden rounded shadow-none transition-shadow hover:shadow-lg"
           >
             <CardHeader className="relative shrink-0 p-0">
               <Image
-                src={tour.image}
+                src={tour.coverImage}
                 alt={tour.title}
                 width={200}
                 height={200}
@@ -37,7 +39,7 @@ export const FeaturedTours = () => {
             <CardContent className="flex-1 space-y-4 p-6">
               <CardTitle className="text-xl">{tour.title}</CardTitle>
               <Separator />
-              <CardDescription className="line-clamp-4 overflow-hidden text-ellipsis">
+              <CardDescription className="line-clamp-4 overflow-hidden text-ellipsis text-base">
                 {tour.description}
               </CardDescription>
             </CardContent>
@@ -45,11 +47,11 @@ export const FeaturedTours = () => {
             <CardFooter className="mt-auto grid h-12 w-full grid-cols-2 p-0">
               <div className="flex size-full items-center justify-center bg-secondary">
                 <Clock className="mr-1 size-4" />
-                <span>{tour.duration}</span>
+                <span>{tour.period}</span>
               </div>
-              <div className="flex size-full items-center justify-center bg-primary text-white">
-                <span>ดูเพิ่มเติม</span>
-              </div>
+              <Button className="size-full rounded-none" asChild>
+                <Link href={`/tours/study${tour.id}`}>ดูเพิ่มเติม</Link>
+              </Button>
             </CardFooter>
           </Card>
         ))}
