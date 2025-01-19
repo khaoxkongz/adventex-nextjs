@@ -9,13 +9,8 @@ import { ContactFormEmail } from "~/emails/contact-form"
 
 const resend = new Resend(env.RESEND_API_KEY)
 
-export async function contactFormAction(
-  _prevState: unknown,
-  formData: FormData
-) {
-  const defaultValues = z
-    .record(z.string(), z.string())
-    .parse(Object.fromEntries(formData.entries()))
+export async function contactFormAction(_prevState: unknown, formData: FormData) {
+  const defaultValues = z.record(z.string(), z.string()).parse(Object.fromEntries(formData.entries()))
 
   try {
     const data = contactFormSchema.parse(Object.fromEntries(formData))
@@ -51,10 +46,7 @@ export async function contactFormAction(
         defaultValues,
         success: false,
         errors: Object.fromEntries(
-          Object.entries(error.flatten().fieldErrors).map(([key, value]) => [
-            key,
-            value?.join(", "),
-          ])
+          Object.entries(error.flatten().fieldErrors).map(([key, value]) => [key, value?.join(", ")])
         ),
       }
     }

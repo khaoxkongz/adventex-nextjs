@@ -16,13 +16,7 @@ interface MobileLinkProps extends LinkProps {
   className?: string
 }
 
-const MobileLink = ({
-  href,
-  onOpenChange,
-  className,
-  children,
-  ...props
-}: MobileLinkProps) => {
+const MobileLink = ({ href, onOpenChange, className, children, ...props }: MobileLinkProps) => {
   const router = useRouter()
   return (
     <Link
@@ -66,11 +60,7 @@ export const MobileNav = () => {
             stroke="currentColor"
             className="!size-6"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 9h16.5m-16.5 6.75h16.5"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
           </svg>
           <span className="sr-only">Toggle Menu</span>
         </Button>
@@ -81,11 +71,7 @@ export const MobileNav = () => {
             {docsConfig.mainNav?.map(
               (item) =>
                 item.href && (
-                  <MobileLink
-                    key={item.href}
-                    href={item.href}
-                    onOpenChange={setOpen}
-                  >
+                  <MobileLink key={item.href} href={item.href} onOpenChange={setOpen}>
                     {item.title}
                   </MobileLink>
                 )
@@ -100,11 +86,7 @@ export const MobileNav = () => {
                     <React.Fragment key={item.href}>
                       {!item.disabled &&
                         (item.href ? (
-                          <MobileLink
-                            href={item.href}
-                            onOpenChange={setOpen}
-                            className="text-muted-foreground"
-                          >
+                          <MobileLink href={item.href} onOpenChange={setOpen} className="text-muted-foreground">
                             {item.title}
                             {item.label && (
                               <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">

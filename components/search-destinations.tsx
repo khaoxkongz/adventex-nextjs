@@ -11,11 +11,7 @@ import { Button } from "~/components/ui/button"
 import { Calendar } from "~/components/ui/calendar"
 import { Input } from "~/components/ui/input"
 import { Label } from "~/components/ui/label"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "~/components/ui/popover"
+import { Popover, PopoverContent, PopoverTrigger } from "~/components/ui/popover"
 import { ShineBorder } from "~/components/magicui/shine-border"
 
 export const SearchDestinations = () => {
@@ -36,17 +32,11 @@ export const SearchDestinations = () => {
       <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-2">
           <Label className="block text-sm font-medium">ปลายทาง</Label>
-          <Input
-            placeholder="เลือกเมืองปลายทาง"
-            className="w-full shadow-none"
-          />
+          <Input placeholder="เลือกเมืองปลายทาง" className="w-full shadow-none" />
         </div>
         <div className="space-y-2">
           <Label className="block text-sm font-medium">แพ็คเกจทัวร์</Label>
-          <Input
-            placeholder="เลือกแพ็คเกจทัวร์"
-            className="w-full shadow-none"
-          />
+          <Input placeholder="เลือกแพ็คเกจทัวร์" className="w-full shadow-none" />
         </div>
         <div className="space-y-2">
           <Label className="block text-sm font-medium">วันเดินทาง</Label>
@@ -56,10 +46,7 @@ export const SearchDestinations = () => {
                 <Button
                   id="date"
                   variant={"outline"}
-                  className={cn(
-                    "w-full justify-start text-left font-normal",
-                    !date && "text-muted-foreground"
-                  )}
+                  className={cn("w-full justify-start text-left font-normal", !date && "text-muted-foreground")}
                 >
                   <CalendarIcon />
                   {date?.from ? (

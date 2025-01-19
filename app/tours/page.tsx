@@ -15,14 +15,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "~/components/ui/pagination"
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "~/components/ui/sheet"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "~/components/ui/sheet"
 import { TourCard } from "~/components/tour-card"
 import { TourFilters } from "~/components/tour-filters"
 import { TourHero } from "~/components/tour-hero"
@@ -49,29 +42,19 @@ export default function ToursPage() {
 
   const totalPages = Math.ceil(filteredTours.length / itemsPerPage)
   const startIndex = (currentPage - 1) * itemsPerPage
-  const paginatedTours = filteredTours.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  )
+  const paginatedTours = filteredTours.slice(startIndex, startIndex + itemsPerPage)
 
-  const handlePreviousPage = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
+  const handlePreviousPage = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     setCurrentPage((prev) => Math.max(prev - 1, 1))
   }
 
-  const handleNextPage = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
+  const handleNextPage = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault()
     setCurrentPage((prev) => Math.min(prev + 1, totalPages))
   }
 
-  const handlePageClick = (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    page: number
-  ) => {
+  const handlePageClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, page: number) => {
     e.preventDefault()
     setCurrentPage(page)
   }
@@ -92,11 +75,7 @@ export default function ToursPage() {
             <div className="flex flex-col gap-2">
               <h2 className="text-2xl font-semibold">ค้นหาแพ็คเกจ</h2>
               <p className="text-sm text-muted-foreground">
-                พบทั้งหมด{" "}
-                <span className="font-medium text-orange-500">
-                  {filteredTours.length}
-                </span>{" "}
-                รายการ
+                พบทั้งหมด <span className="font-medium text-orange-500">{filteredTours.length}</span> รายการ
               </p>
             </div>
             <div className="flex w-full items-center gap-4 md:w-auto">
@@ -120,9 +99,7 @@ export default function ToursPage() {
                   <SheetContent>
                     <SheetHeader>
                       <SheetTitle>กรองแพ็คเกจท่องเที่ยว</SheetTitle>
-                      <SheetDescription>
-                        กรองแพ็คเกจท่องเที่ยวตามความต้องการของคุณ
-                      </SheetDescription>
+                      <SheetDescription>กรองแพ็คเกจท่องเที่ยวตามความต้องการของคุณ</SheetDescription>
                     </SheetHeader>
                     <div className="py-4">
                       <TourFilters />
@@ -138,12 +115,7 @@ export default function ToursPage() {
                   className="rounded-none transition-colors hover:bg-primary/10"
                   onClick={() => setViewMode("grid")}
                 >
-                  <LayoutGrid
-                    className={cn(
-                      "size-4",
-                      viewMode === "grid" && "text-primary"
-                    )}
-                  />
+                  <LayoutGrid className={cn("size-4", viewMode === "grid" && "text-primary")} />
                 </Button>
                 <Button
                   variant="ghost"
@@ -151,12 +123,7 @@ export default function ToursPage() {
                   className="rounded-none transition-colors hover:bg-primary/10"
                   onClick={() => setViewMode("list")}
                 >
-                  <List
-                    className={cn(
-                      "size-4",
-                      viewMode === "list" && "text-primary"
-                    )}
-                  />
+                  <List className={cn("size-4", viewMode === "list" && "text-primary")} />
                 </Button>
               </div>
             </div>
@@ -169,22 +136,13 @@ export default function ToursPage() {
           <div className="flex flex-col gap-8 md:flex-row">
             <aside className="hidden w-64 shrink-0 md:block">
               <div className="sticky top-24 rounded-lg border p-6">
-                <h2 className="mb-6 text-sm font-semibold">
-                  เลือกการแสดงผลแพ็คเกจ
-                </h2>
+                <h2 className="mb-6 text-sm font-semibold">เลือกการแสดงผลแพ็คเกจ</h2>
                 <TourFilters />
               </div>
             </aside>
 
             <div className="flex-1">
-              <div
-                className={cn(
-                  "grid gap-2",
-                  viewMode === "grid"
-                    ? "grid-cols-2 lg:grid-cols-3"
-                    : "grid-cols-1"
-                )}
-              >
+              <div className={cn("grid gap-2", viewMode === "grid" ? "grid-cols-2 lg:grid-cols-3" : "grid-cols-1")}>
                 {paginatedTours.map((tour) => (
                   <TourCard key={tour.id} tour={tour} viewMode={viewMode} />
                 ))}
@@ -197,14 +155,12 @@ export default function ToursPage() {
                 )}
               >
                 <div className="size-full text-sm text-muted-foreground md:hidden">
-                  {(currentPage - 1) * itemsPerPage + 1} -{" "}
-                  {Math.min(currentPage * itemsPerPage, filteredTours.length)}{" "}
+                  {(currentPage - 1) * itemsPerPage + 1} - {Math.min(currentPage * itemsPerPage, filteredTours.length)}{" "}
                   จาก {filteredTours.length}
                 </div>
                 <div className="hidden size-full text-sm text-muted-foreground md:block">
                   แสดงผลลัพธ์ {(currentPage - 1) * itemsPerPage + 1} -{" "}
-                  {Math.min(currentPage * itemsPerPage, filteredTours.length)}{" "}
-                  จากทั้งหมด {filteredTours.length} รายการ
+                  {Math.min(currentPage * itemsPerPage, filteredTours.length)} จากทั้งหมด {filteredTours.length} รายการ
                 </div>
                 <Pagination className="md:justify-end">
                   <PaginationContent>
@@ -212,56 +168,45 @@ export default function ToursPage() {
                       <PaginationPrevious
                         href="#"
                         onClick={handlePreviousPage}
-                        className={cn(
-                          currentPage === 1 && "pointer-events-none opacity-50"
-                        )}
+                        className={cn(currentPage === 1 && "pointer-events-none opacity-50")}
                       />
                     </PaginationItem>
 
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                      (page) => {
-                        const shouldShowPage =
-                          page === 1 ||
-                          page === totalPages ||
-                          Math.abs(currentPage - page) <= 1
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                      const shouldShowPage = page === 1 || page === totalPages || Math.abs(currentPage - page) <= 1
 
-                        if (!shouldShowPage) {
-                          if (
-                            (page === 2 && currentPage > 3) ||
-                            (page === totalPages - 1 &&
-                              currentPage < totalPages - 2)
-                          ) {
-                            return (
-                              <PaginationItem key={page}>
-                                <PaginationEllipsis />
-                              </PaginationItem>
-                            )
-                          }
-                          return null
+                      if (!shouldShowPage) {
+                        if (
+                          (page === 2 && currentPage > 3) ||
+                          (page === totalPages - 1 && currentPage < totalPages - 2)
+                        ) {
+                          return (
+                            <PaginationItem key={page}>
+                              <PaginationEllipsis />
+                            </PaginationItem>
+                          )
                         }
-
-                        return (
-                          <PaginationItem key={page}>
-                            <PaginationLink
-                              href="#"
-                              onClick={(e) => handlePageClick(e, page)}
-                              isActive={currentPage === page}
-                            >
-                              {page}
-                            </PaginationLink>
-                          </PaginationItem>
-                        )
+                        return null
                       }
-                    )}
+
+                      return (
+                        <PaginationItem key={page}>
+                          <PaginationLink
+                            href="#"
+                            onClick={(e) => handlePageClick(e, page)}
+                            isActive={currentPage === page}
+                          >
+                            {page}
+                          </PaginationLink>
+                        </PaginationItem>
+                      )
+                    })}
 
                     <PaginationItem>
                       <PaginationNext
                         href="#"
                         onClick={handleNextPage}
-                        className={cn(
-                          currentPage === totalPages &&
-                            "pointer-events-none opacity-50"
-                        )}
+                        className={cn(currentPage === totalPages && "pointer-events-none opacity-50")}
                       />
                     </PaginationItem>
                   </PaginationContent>

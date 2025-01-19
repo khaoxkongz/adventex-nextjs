@@ -1,13 +1,5 @@
 import Link from "next/link"
-import {
-  Facebook,
-  Instagram,
-  Mail,
-  MapPin,
-  Phone,
-  Twitter,
-  Youtube,
-} from "lucide-react"
+import { Facebook, Instagram, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react"
 
 const footerLinks = {
   company: [
@@ -50,21 +42,13 @@ export const SiteFooter = () => {
         <div className="container py-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
             <aside className="lg:col-span-2">
-              <Link
-                href="/"
-                className="mb-4 block text-xl font-bold uppercase text-primary"
-              >
+              <Link href="/" className="mb-4 block text-xl font-bold uppercase text-primary">
                 advantex international group co., ltd.
               </Link>
-              <p className="mb-6 max-w-[30ch] text-muted-foreground">
-                ทะเบียนพานิชย์เลขที่ 0575567001670
-              </p>
+              <p className="mb-6 max-w-[30ch] text-muted-foreground">ทะเบียนพานิชย์เลขที่ 0575567001670</p>
               <div className="space-y-3">
                 {contactInfo.map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 text-muted-foreground"
-                  >
+                  <div key={index} className="flex items-center gap-2 text-muted-foreground">
                     <item.icon className="size-4" />
                     <span>{item.text}</span>
                   </div>
@@ -77,10 +61,7 @@ export const SiteFooter = () => {
               <ul className="space-y-3">
                 {footerLinks.company.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-muted-foreground transition-colors hover:text-primary"
-                    >
+                    <Link href={link.href} className="text-muted-foreground transition-colors hover:text-primary">
                       {link.label}
                     </Link>
                   </li>
@@ -93,10 +74,7 @@ export const SiteFooter = () => {
               <ul className="space-y-3">
                 {footerLinks.tours.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-muted-foreground transition-colors hover:text-primary"
-                    >
+                    <Link href={link.href} className="text-muted-foreground transition-colors hover:text-primary">
                       {link.label}
                     </Link>
                   </li>
@@ -109,10 +87,7 @@ export const SiteFooter = () => {
               <ul className="space-y-3">
                 {footerLinks.blogs.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-muted-foreground transition-colors hover:text-primary"
-                    >
+                    <Link href={link.href} className="text-muted-foreground transition-colors hover:text-primary">
                       {link.label}
                     </Link>
                   </li>

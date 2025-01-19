@@ -2,12 +2,7 @@ import * as React from "react"
 import Image from "next/image"
 
 import { AspectRatio } from "~/components/ui/aspect-ratio"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "~/components/ui/card"
+import { Card, CardContent, CardDescription, CardTitle } from "~/components/ui/card"
 import { BlurFade } from "~/components/magicui/blur-fade"
 import {
   PageHero,
@@ -50,25 +45,16 @@ export default function AboutPage() {
             <PageHero>
               <PageHeroContent>
                 <PageHeroItem>
-                  <PageHeroImage
-                    src="/images/shared/about-me-hero.png"
-                    alt="About Us"
-                    width={1200}
-                    height={600}
-                  />
+                  <PageHeroImage src="/images/shared/about-me-hero.png" alt="About Us" width={1200} height={600} />
                   <PageHeroText className="z-10 p-8">
                     <BlurFade>
                       <PageHeroTitle>เกี่ยวกับเรา</PageHeroTitle>
                       <PageHeroDescription className="max-w-full">
-                        แอดเวนเท็กซ์
-                        คือศูนย์รวมทัวร์และแพ็คเกจทัวร์หลากหลายเส้นทาง
-                        เรามีความมุ่งมั่นที่จะให้บริการลูกค้าด้วยความจริงใจ
-                        ไม่ว่าจะเป็นโปรแกรมเดินทาง และราคาทัวร์ที่ดีที่สุด
-                        และมีคุณภาพตามความต้องการของลูกค้า
-                        เราเป็นบริษัทที่จดทะเบียนถูกต้องตามกฎหมาย
-                        และได้รับใบอนุญาตประกอบธุรกิจนำเที่ยวประเภทนิติบุคคล
-                        จดทะเบียนภายใต้บริษัทธัญ โฮลดิ้ง จำกัด
-                        ซึ่งเป็นบริษัทที่ประกอบธุรกิจโรงแรมหลายแห่งในประเทศไทย
+                        แอดเวนเท็กซ์ คือศูนย์รวมทัวร์และแพ็คเกจทัวร์หลากหลายเส้นทาง
+                        เรามีความมุ่งมั่นที่จะให้บริการลูกค้าด้วยความจริงใจ ไม่ว่าจะเป็นโปรแกรมเดินทาง
+                        และราคาทัวร์ที่ดีที่สุด และมีคุณภาพตามความต้องการของลูกค้า
+                        เราเป็นบริษัทที่จดทะเบียนถูกต้องตามกฎหมาย และได้รับใบอนุญาตประกอบธุรกิจนำเที่ยวประเภทนิติบุคคล
+                        จดทะเบียนภายใต้บริษัทธัญ โฮลดิ้ง จำกัด ซึ่งเป็นบริษัทที่ประกอบธุรกิจโรงแรมหลายแห่งในประเทศไทย
                         และมีทุนจดทะเบียนอยู่ที่ 203,000,000 บาท
                       </PageHeroDescription>
                     </BlurFade>
@@ -96,9 +82,7 @@ export default function AboutPage() {
 
             <section className="py-16">
               <div className="container mx-auto px-4">
-                <h2 className="mb-12 text-center text-3xl font-bold">
-                  พบกับทีมของเรา
-                </h2>
+                <h2 className="mb-12 text-center text-3xl font-bold">พบกับทีมของเรา</h2>
                 <div className="grid gap-8 md:grid-cols-3">
                   {teamMembers.map((member, idx) => (
                     <BlurFade key={idx} delay={0.1 * idx}>
@@ -113,12 +97,8 @@ export default function AboutPage() {
                           />
                         </AspectRatio>
                         <CardContent className="p-6">
-                          <CardTitle className="mb-1 text-xl">
-                            {member.name}
-                          </CardTitle>
-                          <CardDescription className="mb-4 text-primary">
-                            {member.role}
-                          </CardDescription>
+                          <CardTitle className="mb-1 text-xl">{member.name}</CardTitle>
+                          <CardDescription className="mb-4 text-primary">{member.role}</CardDescription>
                           <p className="text-muted-foreground">{member.bio}</p>
                         </CardContent>
                       </Card>

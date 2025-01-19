@@ -1,14 +1,4 @@
-import {
-  Body,
-  Container,
-  Head,
-  Heading,
-  Hr,
-  Html,
-  Preview,
-  Section,
-  Text,
-} from "@react-email/components"
+import { Body, Container, Head, Heading, Hr, Html, Preview, Section, Text } from "@react-email/components"
 
 interface ContactFormEmailProps {
   name: string
@@ -16,11 +6,7 @@ interface ContactFormEmailProps {
   message: string
 }
 
-export const ContactFormEmail = ({
-  name,
-  email,
-  message,
-}: ContactFormEmailProps) => {
+export const ContactFormEmail = ({ name, email, message }: ContactFormEmailProps) => {
   return (
     <Html>
       <Head />

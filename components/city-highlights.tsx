@@ -21,8 +21,7 @@ const cities = [
   {
     id: "item-2",
     name: "SHANGHAI",
-    className:
-      "col-span-3 col-start-1 row-span-3 row-start-4 lg:row-span-4 lg:row-start-9",
+    className: "col-span-3 col-start-1 row-span-3 row-start-4 lg:row-span-4 lg:row-start-9",
     image: "/images/city/shanghai.jpg",
     alt: "Shanghai skyline at night featuring the iconic Oriental Pearl Tower and modern skyscrapers",
     href: "/destinations/shanghai",
@@ -30,8 +29,7 @@ const cities = [
   {
     id: "item-3",
     name: "CHENGDU",
-    className:
-      "col-span-3 col-start-4 row-span-3 row-start-4 lg:row-span-4 lg:row-start-9",
+    className: "col-span-3 col-start-4 row-span-3 row-start-4 lg:row-span-4 lg:row-start-9",
     image: "/images/city/chengdu.jpg",
     alt: "Traditional Chinese architecture in Chengdu with red lanterns and ancient buildings",
     href: "/destinations/chengdu",
@@ -67,16 +65,12 @@ const cities = [
 
 export const CityHighlights = () => {
   return (
-    <section>
-      <div className="mb-8 grid gap-8 text-center">
-        <SparklesText
-          text="เมืองยอดนิยม"
-          className="text-4xl font-medium leading-none md:text-6xl"
-        />
-        <p className="mx-auto max-w-2xl text-pretty text-lg text-muted-foreground">
+    <section className="grid gap-4 xl:gap-6 2xl:gap-4">
+      <div className="grid items-center justify-center gap-4 text-center xl:gap-6 2xl:gap-4">
+        <SparklesText text="เมืองยอดนิยม" className="text-4xl font-normal leading-none xl:text-6xl" />
+        <p className="max-w-prose text-lg text-muted-foreground xl:text-xl">
           สำหรับนักท่องเที่ยวที่ต้องการสัมผัสวัฒนธรรมและประสบการณ์ที่หลากหลาย
-          จีนมีเมืองที่มีความหลากหลายทางวัฒนธรรมและสถาปัตยกรรม
-          ที่จะทำให้คุณมีประสบการณ์ที่ยิ่งใหญ่และทรงพลัง
+          จีนมีเมืองที่มีความหลากหลายทางวัฒนธรรมและสถาปัตยกรรม ที่จะทำให้คุณมีประสบการณ์ที่ยิ่งใหญ่และทรงพลัง
         </p>
       </div>
 

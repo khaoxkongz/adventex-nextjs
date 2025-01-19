@@ -1,13 +1,7 @@
 "use client"
 
 import * as React from "react"
-import {
-  AnimatePresence,
-  UseInViewOptions,
-  Variants,
-  motion,
-  useInView,
-} from "framer-motion"
+import { AnimatePresence, UseInViewOptions, Variants, motion, useInView } from "framer-motion"
 
 type MarginType = UseInViewOptions["margin"]
 

@@ -1,0 +1,73 @@
+export const blogs = [
+  {
+    id: "1",
+    slug: "china-culture-festival",
+    title: "เทศกาลตรุษจีน: ประเพณีและความหมายที่ซ่อนอยู่",
+    excerpt:
+      "เจาะลึกเทศกาลที่ยิ่งใหญ่ที่สุดของจีน เรียนรู้ความหมายของประเพณีต่างๆ และวิธีการเฉลิมฉลองที่สืบทอดมาหลายพันปี",
+    coverImage: "https://images.unsplash.com/photo-1578950435899-d1c1bf932ab2",
+    category: "culture",
+    readTime: "อ่าน 8 นาที",
+    publishDate: "2024-03-15",
+    author: {
+      name: "หลี่ เหวินหัว",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    },
+  },
+  {
+    id: "2",
+    slug: "study-tips-china",
+    title: "5 เทคนิคการเรียนภาษาจีนให้ได้ผล จากประสบการณ์ตรง",
+    excerpt: "แชร์เคล็ดลับการเรียนภาษาจีนที่ได้ผลจริง พร้อมเทคนิคการจำตัวอักษรจีนและการฝึกพูดอย่างมีประสิทธิภาพ",
+    coverImage: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b",
+    category: "learning",
+    readTime: "อ่าน 5 นาที",
+    publishDate: "2024-03-14",
+    author: {
+      name: "สมศรี วงศ์พัฒนา",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    },
+  },
+  {
+    id: "3",
+    slug: "beijing-travel-guide",
+    title: "เที่ยวปักกิ่งครั้งแรก: คู่มือฉบับสมบูรณ์",
+    excerpt: "แนะนำสถานที่ท่องเที่ยวสำคัญในปักกิ่ง พร้อมทิปส์การเดินทาง ที่พัก และร้านอาหารที่ไม่ควรพลาด",
+    coverImage: "https://images.unsplash.com/photo-1508804185872-d7badad00f7d",
+    category: "travel",
+    readTime: "อ่าน 10 นาที",
+    publishDate: "2024-03-13",
+    author: {
+      name: "มาร์ค ลี",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+    },
+  },
+  {
+    id: "4",
+    slug: "chinese-scholarship-2024",
+    title: "เปิดรับสมัครทุนการศึกษารัฐบาลจีน ประจำปี 2024",
+    excerpt: "ข่าวดีสำหรับผู้สนใจเรียนต่อประเทศจีน รายละเอียดทุนการศึกษา คุณสมบัติผู้สมัคร และขั้นตอนการสมัคร",
+    coverImage: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f",
+    category: "news",
+    readTime: "อ่าน 4 นาที",
+    publishDate: "2024-03-12",
+    author: {
+      name: "จางเหว่ย หลิน",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+    },
+  },
+  {
+    id: "5",
+    slug: "chinese-tea-culture",
+    title: "วัฒนธรรมการดื่มชาจีน: ศิลปะแห่งการดื่มชาที่สืบทอดมาหลายพันปี",
+    excerpt: "เรียนรู้ประวัติศาสตร์และความสำคัญของชาในวัฒนธรรมจีน พร้อมวิธีการชงชาแบบดั้งเดิม",
+    coverImage: "https://images.unsplash.com/photo-1545579133-99bb5ab189bd",
+    category: "culture",
+    readTime: "อ่าน 6 นาที",
+    publishDate: "2024-03-11",
+    author: {
+      name: "หวัง เสี่ยวหมิง",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+    },
+  },
+]

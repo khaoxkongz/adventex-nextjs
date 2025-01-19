@@ -8,7 +8,7 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     { href: "/", title: "หน้าแรก" },
-    { href: "/tours?type=study", title: "แพ็คเกจเรียนต่อ" },
+    { href: "/tours?type=study", title: "แพ็คเกจเรียน" },
     { href: "/tours?type=travel", title: "แพ็คเกจท่องเที่ยว" },
     { href: "/blogs", title: "บทความ" },
     { href: "/about", title: "เกี่ยวกับเรา" },
@@ -16,15 +16,15 @@ export const docsConfig: DocsConfig = {
   ],
   tourNav: [
     {
-      title: "แพ็คเกจเรียนต่อ",
+      title: "แพ็คเกจเรียน",
       items: [
         {
-          title: "แพ็คเกจเรียนต่อระยะสั้น",
+          title: "แพ็คเกจเรียนระยะสั้น",
           href: "/tours?type=study&duration=short",
           items: [],
         },
         {
-          title: "แพ็คเกจเรียนต่อระยะยาว",
+          title: "แพ็คเกจเรียนระยะยาว",
           href: "/tours?type=study&duration=long",
           items: [],
         },

@@ -1,4 +1,3 @@
-import { CallToAction } from "~/components/call-to-action"
 import { CityHighlights } from "~/components/city-highlights"
 import { FeaturedTours } from "~/components/featured-tours"
 import { Gallery } from "~/components/gallery"
@@ -10,15 +9,14 @@ export default function Home() {
   return (
     <div className="border-grid border-b">
       <div className="container-wrapper">
-        <div className="container py-8">
+        <div className="container py-4 xl:py-6 2xl:py-4">
           <div className="grid gap-8 md:gap-16 lg:gap-24">
             <HeroCarousel />
             <SearchDestinations />
-            <CityHighlights />
             <FeaturedTours />
+            <CityHighlights />
             <Testimonials />
             <Gallery />
-            <CallToAction />
           </div>
         </div>
       </div>

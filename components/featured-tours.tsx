@@ -1,34 +1,22 @@
 import Image from "next/image"
-import { Clock, DollarSign } from "lucide-react"
+import { Clock } from "lucide-react"
 
 import { Badge } from "~/components/ui/badge"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "~/components/ui/card"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "~/components/ui/card"
 import { Separator } from "~/components/ui/separator"
 import { SparklesText } from "~/components/magicui/sparkles-text"
 import { tours } from "~/data/tours"
 
 export const FeaturedTours = () => {
   return (
-    <section>
-      <div className="mb-8 grid gap-8 text-center">
-        <SparklesText
-          text="แพ็คเกจทัวร์ท่องเที่ยวยอดฮิต"
-          className="text-4xl font-medium leading-none md:text-6xl"
-        />
-        <p className="mx-auto max-w-xl text-lg text-muted-foreground">
+    <section className="grid gap-4 xl:gap-6 2xl:gap-4">
+      <div className="grid items-center justify-center gap-4 text-center xl:gap-6 2xl:gap-4">
+        <SparklesText text="แพ็คเกจทัวร์ท่องเที่ยวยอดฮิต" className="text-4xl font-normal leading-none xl:text-6xl" />
+        <p className="max-w-prose text-lg text-muted-foreground xl:text-xl">
           สำหรับนักท่องเที่ยวที่ต้องการสัมผัสวัฒนธรรมและประสบการณ์ที่หลากหลาย
-          จีนมีเมืองที่มีความหลากหลายทางวัฒนธรรมและสถาปัตยกรรม
-          ที่จะทำให้คุณมีประสบการณ์ที่ยิ่งใหญ่และทรงพลัง
+          จีนมีเมืองที่มีความหลากหลายทางวัฒนธรรมและสถาปัตยกรรม ที่จะทำให้คุณมีประสบการณ์ที่ยิ่งใหญ่และทรงพลัง
         </p>
       </div>
-
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {tours.splice(0, 3).map((tour) => (
           <Card
@@ -60,8 +48,7 @@ export const FeaturedTours = () => {
                 <span>{tour.duration}</span>
               </div>
               <div className="flex size-full items-center justify-center bg-primary text-white">
-                <DollarSign className="mr-1 size-4" />
-                <span>{tour.prices.default} บาท</span>
+                <span>ดูเพิ่มเติม</span>
               </div>
             </CardFooter>
           </Card>

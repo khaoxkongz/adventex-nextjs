@@ -4,11 +4,7 @@ import { cn } from "~/lib/utils"
 
 type RainbowButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 
-const RainbowButton: React.FC<RainbowButtonProps> = ({
-  children,
-  className,
-  ...props
-}) => {
+const RainbowButton: React.FC<RainbowButtonProps> = ({ children, className, ...props }) => {
   return (
     <button
       className={cn(

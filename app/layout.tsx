@@ -14,13 +14,7 @@ export const metadata: Metadata = {
   title: siteConfig.name,
   metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
-  keywords: [
-    "ทัวร์ต่างประเทศ",
-    "ทัวร์ส่วนตัว",
-    "ทัวร์กรุ๊ป",
-    "ทัวร์ส่วนตัว",
-    "ทัวร์ส่วนตัว",
-  ],
+  keywords: ["ทัวร์ต่างประเทศ", "ทัวร์ส่วนตัว", "ทัวร์กรุ๊ป", "ทัวร์ส่วนตัว", "ทัวร์ส่วนตัว"],
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -34,10 +28,11 @@ export const viewport: Viewport = {
 }
 
 interface RootLayoutProps {
+  breadcrumb: React.ReactNode
   children: React.ReactNode
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ breadcrumb, children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -53,24 +48,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
           }}
         />
       </head>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          promptSans.variable
-        )}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-          enableColorScheme
-        >
+      <body className={cn("min-h-screen bg-background font-sans antialiased", promptSans.variable)}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange enableColorScheme>
           <div vaul-drawer-wrapper="">
             <div className="relative flex min-h-screen flex-col bg-background">
               <div data-wrapper="" className="border-grid flex flex-1 flex-col">
                 <SiteHeader />
-                <main className="flex flex-1 flex-col">{children}</main>
+                <main className="flex flex-1 flex-col">
+                  {breadcrumb}
+                  {children}
+                </main>
                 <SiteFooter />
               </div>
             </div>

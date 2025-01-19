@@ -1,12 +1,7 @@
 import * as React from "react"
 
 import { cn } from "~/lib/utils"
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "~/components/ui/accordion"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "~/components/ui/accordion"
 import { Checkbox } from "~/components/ui/checkbox"
 import { Input } from "~/components/ui/input"
 import { Label } from "~/components/ui/label"
@@ -28,11 +23,7 @@ const ListItem = React.forwardRef<
   }
 >(({ className, id, title, checked, onChange, ...props }, ref) => {
   return (
-    <li
-      ref={ref}
-      className={cn("flex items-center gap-2", className)}
-      {...props}
-    >
+    <li ref={ref} className={cn("flex items-center gap-2", className)} {...props}>
       <Checkbox
         id={id}
         className="border-muted-foreground shadow-none data-[state=checked]:border-primary data-[state=checked]:bg-primary"
@@ -107,18 +98,14 @@ export const TourFilters = () => {
           <Input
             type="number"
             value={filters.priceRange[0]}
-            onChange={(e) =>
-              handlePriceChange([+e.target.value, filters.priceRange[1]])
-            }
+            onChange={(e) => handlePriceChange([+e.target.value, filters.priceRange[1]])}
             className="w-24 rounded-md border px-3 py-2"
           />
           <span className="font-normal text-muted-foreground">-</span>
           <Input
             type="number"
             value={filters.priceRange[1]}
-            onChange={(e) =>
-              handlePriceChange([filters.priceRange[0], +e.target.value])
-            }
+            onChange={(e) => handlePriceChange([filters.priceRange[0], +e.target.value])}
             className="w-24 rounded-md border px-3 py-2"
           />
         </div>
@@ -144,12 +131,7 @@ export const TourFilters = () => {
           <AccordionContent>
             <ul className="space-y-2">
               {PACKAGE_FILTERS.map((item) => (
-                <ListItem
-                  key={item.id}
-                  {...item}
-                  checked={item.checked}
-                  onChange={() => {}}
-                />
+                <ListItem key={item.id} {...item} checked={item.checked} onChange={() => {}} />
               ))}
             </ul>
           </AccordionContent>
@@ -161,12 +143,7 @@ export const TourFilters = () => {
           <AccordionContent>
             <ul className="h-24 space-y-2 overflow-y-auto">
               {CITY_FILTERS.map((item) => (
-                <ListItem
-                  key={item.id}
-                  {...item}
-                  checked={item.checked}
-                  onChange={() => {}}
-                />
+                <ListItem key={item.id} {...item} checked={item.checked} onChange={() => {}} />
               ))}
             </ul>
           </AccordionContent>
@@ -178,12 +155,7 @@ export const TourFilters = () => {
           <AccordionContent>
             <ul className="h-24 space-y-2 overflow-y-auto">
               {MONTH_FILTERS.map((item) => (
-                <ListItem
-                  key={item.id}
-                  {...item}
-                  checked={item.checked}
-                  onChange={() => {}}
-                />
+                <ListItem key={item.id} {...item} checked={item.checked} onChange={() => {}} />
               ))}
             </ul>
           </AccordionContent>
@@ -195,12 +167,7 @@ export const TourFilters = () => {
           <AccordionContent>
             <ul className="space-y-2">
               {ACTIVITY_FILTERS.map((item) => (
-                <ListItem
-                  key={item.id}
-                  {...item}
-                  checked={item.checked}
-                  onChange={() => {}}
-                />
+                <ListItem key={item.id} {...item} checked={item.checked} onChange={() => {}} />
               ))}
             </ul>
           </AccordionContent>

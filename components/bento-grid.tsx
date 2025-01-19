@@ -11,8 +11,7 @@ interface BentoCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode
 }
 
-interface BentoCardLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+interface BentoCardLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode
   className?: string
   href: string
@@ -23,8 +22,7 @@ interface BentoCardContentProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
 }
 
-interface BentoCardImageProps
-  extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface BentoCardImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string
   alt: string
   className?: string
@@ -42,12 +40,7 @@ interface BentoCardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
 
 const BentoGrid = ({ children, className }: BentoGridProps) => {
   return (
-    <div
-      className={cn(
-        "grid grid-cols-6 grid-rows-12 gap-2 lg:grid-cols-12 lg:grid-rows-12",
-        className
-      )}
-    >
+    <div className={cn("grid grid-cols-6 grid-rows-12 gap-2 lg:grid-cols-12 lg:grid-rows-12", className)}>
       {children}
     </div>
   )
@@ -56,14 +49,7 @@ BentoGrid.displayName = "BentoGrid"
 
 const BentoCard = ({ children, className }: BentoCardProps) => {
   return (
-    <div
-      className={cn(
-        "overflow-hidden rounded-lg border bg-card text-card-foreground",
-        className
-      )}
-    >
-      {children}
-    </div>
+    <div className={cn("overflow-hidden rounded-lg border bg-card text-card-foreground", className)}>{children}</div>
   )
 }
 BentoCard.displayName = "BentoCard"
@@ -94,26 +80,14 @@ const BentoCardImage = ({ src, alt, className }: BentoCardImageProps) => {
       alt={alt}
       width={400}
       height={400}
-      className={cn(
-        "size-full object-cover transition-transform duration-300 group-hover:scale-105",
-        className
-      )}
+      className={cn("size-full object-cover transition-transform duration-300 group-hover:scale-105", className)}
     />
   )
 }
 BentoCardImage.displayName = "BentoCardImage"
 
 const BentoCardFooter = ({ children, className }: BentoCardFooterProps) => {
-  return (
-    <div
-      className={cn(
-        "absolute inset-x-0 bottom-0 z-10 p-4 text-white",
-        className
-      )}
-    >
-      {children}
-    </div>
-  )
+  return <div className={cn("absolute inset-x-0 bottom-0 z-10 p-4 text-white", className)}>{children}</div>
 }
 BentoCardFooter.displayName = "BentoCardFooter"
 
@@ -122,12 +96,4 @@ const BentoCardTitle = ({ children, className }: BentoCardTitleProps) => {
 }
 BentoCardTitle.displayName = "BentoCardTitle"
 
-export {
-  BentoGrid,
-  BentoCard,
-  BentoCardContent,
-  BentoCardFooter,
-  BentoCardImage,
-  BentoCardLink,
-  BentoCardTitle,
-}
+export { BentoGrid, BentoCard, BentoCardContent, BentoCardFooter, BentoCardImage, BentoCardLink, BentoCardTitle }
