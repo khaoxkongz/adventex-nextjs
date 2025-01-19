@@ -20,8 +20,10 @@ export default function TourStudyPage() {
           </section>
         </div>
       </div>
-      <SearchFilter />
-      <ProgramCards />
+      <React.Suspense>
+        <SearchFilter />
+        <ProgramCards />
+      </React.Suspense>
     </React.Fragment>
   )
 }
